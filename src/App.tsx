@@ -238,7 +238,7 @@ function App() {
           </motion.div>
           <motion.div className="portrait-shell" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }}>
             <div className="portrait-orbit orbit-a" /><div className="portrait-orbit orbit-b" />
-            <img src={publicAsset('prithvi-profile.jpg')} alt="Prithvi Sasikumar" />
+            <img src={publicAsset('prithvi-profile-full.jpeg')} alt="Prithvi Sasikumar" />
             <span className="portrait-tag"><span className="status-dot" /> OPEN TO WORK</span>
           </motion.div>
           <motion.div className="hero-intro" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
