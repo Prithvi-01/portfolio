@@ -236,28 +236,33 @@ function App() {
           <motion.div className="hero-side-line hero-side-right" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
             <i /><span>ROBOTICS · GEN AI</span>
           </motion.div>
-          <motion.div className="portrait-shell" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }}>
-            <div className="portrait-orbit orbit-a" /><div className="portrait-orbit orbit-b" />
-            <img src={publicAsset('prithvi-profile-full.jpeg')} alt="Prithvi Sasikumar" />
-            <span className="portrait-tag"><span className="status-dot" /> OPEN TO WORK</span>
-          </motion.div>
-          <motion.div className="hero-intro" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
-            HELLO, I&apos;M
-          </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
-            <span>Prithvi</span><span>Sasikumar</span>
-          </motion.h1>
-          <motion.div className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.65 }}>
-            <i /> AI/ML ENGINEER · GENERATIVE AI · AGENTIC SYSTEMS <i />
-          </motion.div>
-          <motion.blockquote className="hero-quote" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.72 }}>
-            “I turn ambitious ideas into intelligent systems that perform beyond the prototype.”
-          </motion.blockquote>
-          <motion.div className="hero-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}>
-            <a className="button primary" href="#projects">Explore my work <ArrowDown size={17} /></a>
-            <a className="button ghost" href="https://github.com/Prithvi-01" target="_blank" rel="noreferrer"><GitBranch size={17} /> GitHub</a>
-            <a className="button ghost" href={publicAsset('Prithvi_Sasikumar_Resume.pdf')} target="_blank" rel="noreferrer">Resume <ArrowUpRight size={17} /></a>
-          </motion.div>
+          <div className="hero-columns">
+            <div className="hero-copy-column">
+              <motion.div className="hero-intro" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>HELLO, I&apos;M</motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+                <span>Prithvi</span><span>Sasikumar</span>
+              </motion.h1>
+              <motion.div className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.65 }}>
+                <i /> AI/ML ENGINEER · GENERATIVE AI · AGENTIC SYSTEMS <i />
+              </motion.div>
+              <motion.blockquote className="hero-quote" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.72 }}>
+                “I turn ambitious ideas into intelligent systems that perform beyond the prototype.”
+              </motion.blockquote>
+              <motion.div className="hero-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}>
+                <a className="button primary" href="#projects">Explore my work <ArrowDown size={17} /></a>
+                <a className="button ghost" href="https://github.com/Prithvi-01" target="_blank" rel="noreferrer"><GitBranch size={17} /> GitHub</a>
+                <a className="button ghost" href={publicAsset('Prithvi_Sasikumar_Resume.pdf')} target="_blank" rel="noreferrer">Resume <ArrowUpRight size={17} /></a>
+              </motion.div>
+            </div>
+            <motion.div className="hero-portrait-column" initial={{ opacity: 0, x: 45 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }}>
+              <div className="portrait-shell">
+                <div className="portrait-orbit orbit-a" /><div className="portrait-orbit orbit-b" />
+                <img src={publicAsset('prithvi-profile-full.jpeg')} alt="Prithvi Sasikumar" />
+                <span className="portrait-tag"><span className="status-dot" /> OPEN TO WORK</span>
+              </div>
+              <span className="portrait-caption">BUILDING INTELLIGENT SYSTEMS<br />FROM RESEARCH TO REALITY</span>
+            </motion.div>
+          </div>
           <motion.div className="hero-meta" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
             <span>Tempe, Arizona</span><span>AI Engineer / Robotics</span><span>Scroll to explore</span>
           </motion.div>
