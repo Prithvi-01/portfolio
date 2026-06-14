@@ -87,7 +87,102 @@ const projects: Project[] = [
   },
 ]
 
-const skills = ['Generative AI', 'Agentic AI', 'RAG', 'Computer Vision', 'LLM Evaluation', 'PyTorch', 'TensorFlow', 'LangGraph', 'FastAPI', 'AWS', 'Docker', 'TensorRT', 'ROS2', 'PX4', 'React', 'TypeScript']
+type EvidenceLevel = 'Production' | 'Applied' | 'Research' | 'Certified'
+type SkillEvidence = { level: EvidenceLevel; source: string; detail: string; metric?: string; link?: string }
+type SkillCategory = { name: string; short: string; color: string; description: string; skills: string[]; evidence: SkillEvidence[] }
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: 'Generative AI & LLMs', short: 'Gen AI', color: '#72f6ff',
+    description: 'Grounded, tool-using, multi-agent applications designed for reliable production workflows.',
+    skills: ['Large Language Models', 'Generative AI', 'RAG', 'Agentic AI', 'AI Agents', 'Multi-Agent Systems', 'Function Calling', 'Tool Calling', 'Prompt Engineering', 'Prompt Chaining', 'Semantic Caching', 'Hybrid Retrieval', 'Semantic Reranking', 'LLM Evaluation', 'Hallucination Mitigation', 'Guardrails', 'Conversational AI', 'Multimodal AI', 'Vision-Language Models', 'GPT-4o', 'Claude', 'Gemini Pro', 'Ollama', 'DALL-E', 'NotebookLM', 'LangChain', 'LangGraph', 'LlamaIndex', 'LangSmith', 'SentenceTransformers'],
+    evidence: [
+      { level: 'Production', source: 'OooWee LLC', detail: 'Built Gemini-powered multi-agent pipelines, prompt chains, fallback routing, and tool orchestration.', metric: '40% less recurring manual workload' },
+      { level: 'Production', source: 'NexusAI', detail: 'Deployed a multi-LLM orchestration and RAG platform with retrieval, caching, and LLMOps monitoring.', link: 'https://github.com/Prithvi-01/nexusai' },
+      { level: 'Applied', source: 'ME-UP', detail: 'Built conversational product discovery and buyer-seller agent workflows with RAG and semantic search.', metric: 'Sub-200 ms query latency', link: 'https://github.com/Prithvi-01/ME-UP' },
+    ],
+  },
+  {
+    name: 'Machine Learning & Deep Learning', short: 'ML / DL', color: '#b892ff',
+    description: 'Model development, experimentation, optimization, and evaluation across structured and unstructured data.',
+    skills: ['PyTorch', 'TensorFlow', 'Keras', 'scikit-learn', 'Transformers', 'BERT', 'CNNs', 'Reinforcement Learning', 'Transfer Learning', 'Fine-Tuning', 'Optuna', 'Classification', 'Regression', 'Clustering', 'Anomaly Detection', 'Natural Language Processing', 'Named Entity Recognition', 'Time-Series Analysis', 'Recommendation Systems', 'Feature Engineering', 'Data Preprocessing', 'Model Evaluation', 'Hyperparameter Tuning', 'Pandas', 'NumPy', 'SciPy', 'spaCy', 'NLTK', 'Matplotlib'],
+    evidence: [
+      { level: 'Production', source: 'Coherent Pixels Systems', detail: 'Developed and shipped deep-learning pipelines for gait analysis, anomaly detection, and industrial automation.', metric: '3 production AI systems' },
+      { level: 'Applied', source: 'Driver Fatigue Detection', detail: 'Built a CNN-based fatigue detector using TensorFlow and live video features.', metric: '94% detection accuracy' },
+      { level: 'Applied', source: 'Poultry Lameness Detection', detail: 'Applied transfer learning, Transformers, Optuna tuning, and experiment tracking to gait analysis.', metric: '37% better prediction consistency' },
+    ],
+  },
+  {
+    name: 'Computer Vision & Edge AI', short: 'Vision', color: '#ffcc66',
+    description: 'Real-time visual intelligence optimized for edge hardware, industrial inspection, and interpretable imaging.',
+    skills: ['Computer Vision', 'OpenCV', 'Object Detection', 'Image Classification', 'Gait Analysis', 'Medical Imaging', 'Explainable AI', 'Real-Time Video Processing', 'Surface Defect Detection', 'Eye Tracking', 'Blink Detection', 'Head Pose Estimation', 'ONNX Runtime', 'TensorRT', 'INT8 Quantization', 'Edge Inference', 'Model Compression', 'Latency Optimization', 'MobileNetV2', 'ResNet', 'ResNet-50', 'EfficientNet', 'FAISS Feature Stores', 'NVIDIA Isaac Sim'],
+    evidence: [
+      { level: 'Production', source: 'Conveyor Defect Detection', detail: 'Benchmarked CNNs and optimized the winning model with ONNX, TensorRT, and INT8 quantization.', metric: '73% smaller · 61% faster · ≥98% accuracy' },
+      { level: 'Production', source: 'Coherent Pixels Systems', detail: 'Delivered a TensorRT-optimized anomaly detection pipeline for real-time industrial inspection.', metric: '<100 ms inference' },
+      { level: 'Research', source: 'IEEE Brain Tumour Diagnosis', detail: 'Built a ResNet-50 diagnostic classifier with explainable AI for interpretable MRI predictions.', link: 'https://ieeexplore.ieee.org/document/10493599' },
+    ],
+  },
+  {
+    name: 'MLOps, Cloud & Infrastructure', short: 'MLOps', color: '#75e6a4',
+    description: 'Repeatable deployment, monitoring, experimentation, and cloud infrastructure for production AI.',
+    skills: ['Docker', 'Docker Compose', 'MLflow', 'DVC', 'AWS EC2', 'AWS S3', 'AWS Lambda', 'AWS SageMaker', 'Databricks', 'Nginx', 'Terraform', 'GitHub Actions', 'CI/CD', 'Zero-Downtime Deployment', 'Model Serving', 'Model Monitoring', 'Data Drift Detection', 'Automated Retraining', 'Experiment Tracking', 'Weights & Biases', 'Hugging Face Hub', 'Linux', 'Bash', 'Infrastructure as Code'],
+    evidence: [
+      { level: 'Production', source: 'Coherent Pixels Systems', detail: 'Containerized ML pipelines, tracked experiments, hosted models on SageMaker, and automated retraining.', metric: '52% lower false-negative rate' },
+      { level: 'Production', source: 'NexusAI', detail: 'Deployed to AWS EC2 using Terraform, Nginx, Docker Compose, and GitHub Actions.', metric: 'Automated zero-downtime deployment', link: 'https://github.com/Prithvi-01/nexusai' },
+      { level: 'Certified', source: 'Databricks & AWS', detail: 'Generative AI Engineer Associate and AWS Cloud Practitioner certifications.' },
+    ],
+  },
+  {
+    name: 'Robotics & Autonomous Systems', short: 'Robotics', color: '#ff9f6e',
+    description: 'Perception, planning, control, simulation, and coordination for autonomous robots and UAVs.',
+    skills: ['ROS2', 'PX4 Autopilot', 'MicroDDS', 'Gazebo', 'RViz', 'NVIDIA Isaac Sim', 'Multi-Robot Coordination', 'UAV Coordination', 'Vision-Language Navigation', 'Reinforcement Learning Locomotion', 'Perception', 'Trajectory Planning', 'A* Pathfinding', 'Finite State Machines', 'Control Systems', 'Arduino', 'MATLAB', 'Simulink', 'PI Control', 'Sensor Filtering', 'Digital Twins', 'ENU-NED Transformations', 'Offboard Control', 'Collision Avoidance'],
+    evidence: [
+      { level: 'Applied', source: 'Autonomous Multi-Drone Irrigation', detail: 'Built ROS2-PX4 offboard control, fleet task allocation, collision avoidance, and custom Gazebo simulation.' },
+      { level: 'Applied', source: 'Quadruped Vision-Language Navigation', detail: 'Integrated semantic instructions, visual memory, and reinforcement-learning locomotion policies.' },
+      { level: 'Applied', source: 'MyCobot Pro 600', detail: 'Combined computer vision, A* pathfinding, ROS2 digital twins, and real robotic actuation.' },
+      { level: 'Applied', source: 'Arduino Motor Control', detail: 'Implemented sensor filtering and closed-loop PI motor control in Simulink.' },
+    ],
+  },
+  {
+    name: 'Backend & APIs', short: 'Backend', color: '#ff7fa8',
+    description: 'Reliable services, integrations, and orchestration layers that turn AI models into usable products.',
+    skills: ['Python', 'C++', 'Java', 'FastAPI', 'Flask', 'REST APIs', 'WebSockets', 'Authentication', 'API Integration', 'Function Orchestration', 'Tool Orchestration', 'Microservices', 'Backend Architecture', 'PyTest', 'Automated Testing', 'OpenAI API', 'Anthropic API', 'Google Gemini API', 'Business Logic', 'Async Workflows'],
+    evidence: [
+      { level: 'Production', source: 'OooWee LLC', detail: 'Integrated CRM, project-management, and web APIs through function calling and intelligent task routing.' },
+      { level: 'Production', source: 'NexusAI', detail: 'Built FastAPI services, authentication, LLM routing, and document-processing APIs.', link: 'https://github.com/Prithvi-01/nexusai' },
+      { level: 'Applied', source: 'ME-UP', detail: 'Developed scalable marketplace backend services and AI-powered buyer-seller workflows.', link: 'https://github.com/Prithvi-01/ME-UP' },
+    ],
+  },
+  {
+    name: 'Data, Databases & Vector Search', short: 'Data', color: '#8ba8ff',
+    description: 'Operational and vector data systems for retrieval, recommendations, analytics, and AI memory.',
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'SQLite', 'Elasticsearch', 'Meilisearch', 'Supabase', 'Pinecone', 'FAISS', 'ChromaDB', 'pgvector', 'Weaviate', 'Qdrant', 'Vector Indexing', 'Similarity Search', 'Embeddings', 'Semantic Search', 'ETL Pipelines', 'Metadata Stores', 'Data Cleaning', 'Data Preprocessing', 'Hybrid Search', 'Caching'],
+    evidence: [
+      { level: 'Production', source: 'NexusAI', detail: 'Implemented ChromaDB retrieval, semantic caching, SQLite authentication, and document knowledge pipelines.', link: 'https://github.com/Prithvi-01/nexusai' },
+      { level: 'Applied', source: 'ME-UP', detail: 'Combined Pinecone, MongoDB, Redis, ChromaDB, and semantic reranking for commerce discovery.', link: 'https://github.com/Prithvi-01/ME-UP' },
+      { level: 'Production', source: 'Conveyor Defect Detection', detail: 'Stored and retrieved visual feature representations using FAISS-indexed stores on AWS S3.' },
+    ],
+  },
+  {
+    name: 'Frontend & Product Engineering', short: 'Frontend', color: '#d6f36b',
+    description: 'Responsive interfaces and visual systems that make technically complex products clear and intuitive.',
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Vite', 'Streamlit', 'Flutter', 'Android Studio', 'Chrome Extension APIs', 'D3.js', 'Mapbox', 'Scrollama', 'Framer Motion', 'Responsive Design', 'UI/UX Design', 'Interactive Visualization', 'Dashboard Design'],
+    evidence: [
+      { level: 'Production', source: 'FlowSpace AI', detail: 'Built an animated Chrome extension workspace with React, TypeScript, Vite, and Chrome APIs.', link: 'https://github.com/Prithvi-01/flowspace-ai' },
+      { level: 'Production', source: 'NexusAI', detail: 'Developed a Next.js LLMOps dashboard for real-time latency and cache metrics.', link: 'https://github.com/Prithvi-01/nexusai' },
+      { level: 'Applied', source: 'Vegan Rebellion Visualization', detail: 'Created scroll-driven D3.js and Mapbox data stories using real-world sustainability datasets.' },
+    ],
+  },
+  {
+    name: 'Automation & Business Tools', short: 'Automation', color: '#f5b9ff',
+    description: 'AI-enabled workflows that connect business systems, reduce handoffs, and accelerate decision-making.',
+    skills: ['Make.com', 'GoHighLevel', 'CRM Automation', 'Workflow Automation', 'Trello', 'Jira', 'Wix', 'Business Intelligence Reporting', 'Research Automation', 'Analytics Automation', 'Lead Qualification', 'Client Communication', 'Task Routing', 'Project Management', 'Technical Documentation'],
+    evidence: [
+      { level: 'Production', source: 'OooWee LLC', detail: 'Automated lead qualification, client communication, reporting, analytics synthesis, and research summarization.', metric: '40% less recurring manual workload' },
+      { level: 'Applied', source: 'FlowSpace AI', detail: 'Centralized tasks, calendars, email monitoring, and workflow organization in an intelligent workspace.', link: 'https://github.com/Prithvi-01/flowspace-ai' },
+    ],
+  },
+]
 
 const roles = [
   {
@@ -208,9 +303,14 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeProject, setActiveProject] = useState(0)
+  const [activeSkillCategory, setActiveSkillCategory] = useState(0)
+  const [selectedSkill, setSelectedSkill] = useState(skillCategories[0].skills[0])
+  const [evidenceFilter, setEvidenceFilter] = useState<'All' | EvidenceLevel>('All')
   const publicAsset = (name: string) => `${import.meta.env.BASE_URL}${name}`
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 25 })
+  const activeSkills = skillCategories[activeSkillCategory]
+  const visibleEvidence = activeSkills.evidence.filter((item) => evidenceFilter === 'All' || item.level === evidenceFilter)
 
   return (
     <>
@@ -330,10 +430,55 @@ function App() {
         </section>
 
         <section id="skills" className="section">
-          <Reveal className="section-heading"><span className="eyebrow">04 / Capabilities</span><h2>A connected technical universe.</h2></Reveal>
-          <div className="skills-layout">
-            <Reveal className="skill-core"><div className="core-rings"><BrainCircuit size={74} strokeWidth={1} /></div><span>AI Systems Engineering</span></Reveal>
-            <div className="skill-cloud">{skills.map((skill, index) => <Reveal key={skill} delay={(index % 6) * 0.04}><span className="skill-chip">{skill}</span></Reveal>)}</div>
+          <Reveal className="section-heading skills-heading">
+            <span className="eyebrow">04 / Capabilities</span><h2>A connected technical universe.</h2>
+            <p>Explore {skillCategories.reduce((count, category) => count + category.skills.length, 0)} skills backed by evidence from production work, completed projects, research, and certifications.</p>
+          </Reveal>
+          <div className="skills-explorer">
+            <div className="skill-category-list" role="tablist" aria-label="Skill categories">
+              {skillCategories.map((category, index) => (
+                <button
+                  key={category.name}
+                  role="tab"
+                  aria-selected={activeSkillCategory === index}
+                  className={activeSkillCategory === index ? 'skill-category active' : 'skill-category'}
+                  style={{ '--skill-color': category.color } as React.CSSProperties}
+                  onClick={() => { setActiveSkillCategory(index); setSelectedSkill(category.skills[0]); setEvidenceFilter('All') }}
+                >
+                  <span>0{index + 1}</span><strong>{category.short}</strong><em>{category.skills.length}</em><ChevronRight size={16} />
+                </button>
+              ))}
+            </div>
+            <motion.div className="skill-detail-panel" key={activeSkills.name} initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} style={{ '--skill-color': activeSkills.color } as React.CSSProperties}>
+              <div className="skill-panel-top">
+                <div><span className="skill-panel-label">SELECTED DOMAIN</span><h3>{activeSkills.name}</h3><p>{activeSkills.description}</p></div>
+                <div className="skill-count"><strong>{activeSkills.skills.length}</strong><span>SKILLS</span></div>
+              </div>
+              <div className="skill-node-grid">
+                {activeSkills.skills.map((skill) => (
+                  <button key={skill} onClick={() => setSelectedSkill(skill)} className={selectedSkill === skill ? 'skill-node active' : 'skill-node'}>{skill}</button>
+                ))}
+              </div>
+              <div className="evidence-section">
+                <div className="evidence-header">
+                  <div><span className="skill-panel-label">EVIDENCE FOR</span><h4>{selectedSkill}</h4></div>
+                  <div className="evidence-filters">
+                    {(['All', 'Production', 'Applied', 'Research', 'Certified'] as const).map((filter) => (
+                      <button key={filter} className={evidenceFilter === filter ? 'active' : ''} onClick={() => setEvidenceFilter(filter)}>{filter}</button>
+                    ))}
+                  </div>
+                </div>
+                <div className="evidence-grid">
+                  {visibleEvidence.length ? visibleEvidence.map((item) => (
+                    <article className="evidence-card" key={`${item.source}-${item.level}`}>
+                      <div><span className={`evidence-level ${item.level.toLowerCase()}`}>{item.level}</span>{item.metric && <strong>{item.metric}</strong>}</div>
+                      <h5>{item.source}</h5><p>{item.detail}</p>
+                      {item.link && <a href={item.link} target="_blank" rel="noreferrer">View evidence <ArrowUpRight size={13} /></a>}
+                    </article>
+                  )) : <div className="empty-evidence">No evidence in this filter. Select “All” to view every application.</div>}
+                </div>
+              </div>
+            </motion.div>
           </div>
           <div className="discipline-grid">
             {[
